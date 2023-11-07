@@ -1,4 +1,4 @@
-import pandas as pd
+pimport pandas as pd
 import matplotlib.pyplot as plt
 while True:
     print("MAIN MENU")
@@ -20,28 +20,28 @@ while True:
         print("6.Display the data types of all columns")
         print("7.Display the size")
         ch1=int(input("Enter Your Choice:"))
-            if ch1==1:
+        if ch1==1:
                 print(df.T)
                 input("Press Enter to continue...")
-            elif ch1==2:
+        elif ch1==2:
                 print(df.columns)
                 input("Press Enter to continue...")
-            elif ch1==3:
+        elif ch1==3:
                 print(df.index)
                 input("Press Enter to continue...")
-            elif ch1==4:
+        elif ch1==4:
                 print(df.shape)
                 input("Press Enter to continue...")
-            elif ch1==5:
+        elif ch1==5:
                 print(df.ndim)
                 input("Press Enter to continue...")
-            elif ch1==6:
+        elif ch1==6:
                 print(df.dtypes)
                 input("Press Enter to continue...")
-            elif ch1==7:
+        elif ch1==7:
                 print(df.size)
                 input("Press Enter to continue...")
-            elif ch1==8:
+        elif ch1==8:
                 pass
     elif ch==2:
         df=pd.read_csv("Untitled_spreadsheet.csv" ,encoding='latin-1')
