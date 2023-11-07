@@ -1,4 +1,4 @@
-pimport pandas as pd
+import pandas as pd
 import matplotlib.pyplot as plt
 while True:
     print("MAIN MENU")
@@ -57,36 +57,36 @@ while True:
         print("9.Least Runs (Bottom Ten)")
         print("0.Back")
         ch2=int(input("Enter Your Choice:"))
-            if ch2==1:
+        if ch2==1:
                 df1=df.loc[:,['city','name','runs','ballsFaced']]
                 df1=df1.sort_values(by='runs',ascending=False)
                 print(df1.head(10))
                 input("Press Enter to continue...")
-            elif ch2==2:
+        elif ch2==2:
                 df1=df.loc[:,['city','name','runs','ballsFaced']]
                 df1=df1.sort_values(by='runs',ascending=False)
                 print(df1.tail(10))
                 input("Press Enter to continue...")
-            elif ch2==3:
+        elif ch2==3:
                 no=int(input("How Many Number of Records You Want To Be Printed From The Top:"))
                 df1=df.loc[:,['city','name','runs','ballsFaced']]
                 print(df1.head(no))
                 input("Press enter to continue...")
-            elif ch2==4:
+        elif ch2==4:
                 n=int(input("How Many Number of Records You Want To Be Printed From Bottom:"))
                 df1=df.loc[:,['city','name','runs','ballsFaced']]
                 print(df1.tail(n))
                 input("Press enter to continue...")
-            elif ch2==5:
+        elif ch2==5:
                 sno=int(input("Enter The Sr.No. For Which You Want The data To Be Displayed:"))
                 print(df.loc[sno])
                 input('Press enter to continue...')
-            elif ch2==6:
+        elif ch2==6:
                 team=input("Enter The Sr.No. For Which You Want The data To Be Displayed:")
                 df1=df.loc[df['team']==team]
                 print(df1.loc[:,['city','name','runs','ballsFaced']])
                 input('Press enter to continue...')
-            elif ch2==7:
+        elif ch2==7:
                 print("Ensure the name should match with CSV records:")
                 b=input("Enter The Sr.No. For Which You Want The data To Be Displayed:")
                 df1=df.loc[df['name']==b]
@@ -95,20 +95,20 @@ while True:
                 df1.at['Total','runs']=df1['runs'].sum()
                 print(df1)
                 input('Press enter to continue...')
-            elif ch2==8:
+        elif ch2==8:
                 df1=df[['name','runs']].groupby('name').sum()
                 df1=df1.sort_values(by='runs',ascending=False)
                 print(df1.head(10))
                 input("Press enter to continue...")
-            elif ch2==9:
+        elif ch2==9:
                 df1=df[['name','runs']].groupby('name').sum()
                 df1=df1.sort_values('runs')
                 print(df1.head(10))
                 input("Press enter to continue...")
-                    if ch2==0:
-                        pass
-                    else : 
-                        print("Invalid Choice")
+        elif ch2==0:
+                pass
+        else : 
+                print("Invalid Choice")
     elif (ch==3):
         df=pd.read_csv("Untitled_spreadsheet.csv" ,encoding='latin-1')
         print("Insert Delete record")
@@ -116,12 +116,12 @@ while True:
         print("2.Delete a records")
         print("3.Exit The Records Menu")
         ch3=int(input("Enter Your Choice:"))
-            if ch3==1:
+        if ch3==1:
                 col=df.columns
                 print(col)
                 j=0
                 rec={}
-            for i in col:
+        for i in col:
                 print("Enter",col[j],"value:")
                 nval=input()
                 rec[col[j]]=nval
@@ -130,13 +130,13 @@ while True:
                 print("Data is Successfully Updated")
                 df.to_csv('t20wc.csv',index=False)
                 input("Press enter to continue...")
-            if ch3==2:
+        elif ch3==2:
                 a=int(input("Enter S.No. whose data You Want to be deleted:"))
                 df.drop([a-1],inplace=True)
                 df.to_csv('t20wc.csv',index=False)
                 print("Record deleted...")
                 input("Press enter to continue...")
-            elif ch3==3:
+        elif ch3==3:
                 pass
     elif(ch==4):
         df=pd.read_csv("Untitled_spreadsheet.csv" ,encoding='latin-1')
@@ -148,25 +148,25 @@ while True:
         print("5.Exit The Data Visualization Menu")
         ch4=int(input("Enter Choice:"))
         df1=pd.DataFrame()
-            if ch4==1:
+        if ch4==1:
                 n=int(input("How many records from the top of table you want to plot:"))
                 df1=df.head(n)
                 df1.plot(linestyle="-.",linewidth=2,label="WORLD CUP RECORD OF MS DHONI")
                 plt.show()
-            elif ch4==2:
+        elif ch4==2:
                 n=int(input("How many records from the top of table you want to plot:"))
                 df1=df.head(n)
                 df1.plot(kind="bar",color="pink",width=.8)
                 plt.show()
-            elif ch4==3:
+        elif ch4==3:
                 n=int(input("How many records from the top of table you want to plot:"))
                 df1=df.head(n)
                 df1.plot(kind="barh",color="cyan",width=.8)
                 plt.show()
-            elif ch4==4:
+        elif ch4==4:
                 df.hist(color="yellow",edgecolor="pink")
                 plt.show()
-            elif ch4==5:
+        elif ch4==5:
                 pass
     elif(ch==5):
         df=pd.read_csv("Untitled_spreadsheet.csv" ,encoding='latin-1')
@@ -176,7 +176,7 @@ while True:
         print("3.Back")
         ch5=int(input("Enter Choice:"))
         df1=pd.DataFrame()
-            if ch5==1:
+        if ch5==1:
                 print("Ensure the name should match with CSV records:")
                 player=input("Enter player name you want to plot:")
                 print('''
@@ -187,29 +187,29 @@ while True:
                 5. Back
                 ''')
                 ch5_1=int(input("Enter your choice:"))
-                    if ch5_1==1:
+                if ch5_1==1:
                         df1=df.loc[df['name']==player]
                         df1=df1.loc[:,['against','runs']]
                         df1.plot(x='against',y='runs',kind='line',linestyle="-.",linewidth=2,color='r')
                         plt.show()
-                    elif ch5_1==2:
+                elif ch5_1==2:
                         df1=df.loc[df['name']==player]
                         df1=df1.loc[:,['against','runs']]
                         df1.plot(x='against',y='runs',kind='bar',color='r')
                         plt.show()
-                    elif ch5_1==3:
+                elif ch5_1==3:
                         df1=df.loc[df['name']==player]
                         df1=df1.loc[:,['against','runs']]
                         df1.plot(x='against',y='runs',kind='barh',color='r')
                         plt.show()
-                    elif ch5_1==4:
+                elif ch5_1==4:
                         df1=df.loc[df['name']==player]
                         df1=df1.loc[:,['against','runs']]
                         df1.plot(x='against',y='runs',kind='hist',bins=25,cumulative=True)
                         plt.show()
-                    elif ch5_1==5:
+                elif ch5_1==5:
                         pass
-                    elif ch5==2:
+        elif ch5==2:
                         print("Ensure the name should match with CSV records:")
                         team=input("Enter team name you want to plot:")
                         print('''
@@ -220,25 +220,25 @@ while True:
                         5. Back
                         ''')
                         ch5_2=int(input("Enter your choice:"))
-                    if ch5_2==1:
-                        df1=df.loc[df['team']==team]
-                        df1=df1.loc[:,['name','runs']]
-                        df1.plot(x='name',y='runs',kind='line',linestyle="-.",linewidth=2,color='r')
-                        plt.show()
-                    elif ch5_2==2:
-                        df1=df.loc[df['team']==team]
-                        df1=df1.loc[:,['name','runs']]
-                        df1.plot(x='name',y='runs',kind='bar',color='r')
-                        plt.show()
-                    elif ch5_2==3:
-                        df1=df.loc[df['team']==team]
-                        df1=df1.loc[:,['name','runs']]
-                        df1.plot(x='name',y='runs',kind='barh',color='r')
-                        plt.show()
-                    elif ch5_2==4:
-                        df1=df.loc[df['team']==team]
-                        df1=df1.loc[:,['name','runs']]
-                        df1.plot(x='name',y='runs',kind='hist',bins=25,cumulative=True)
-                        plt.show()
-                    elif ch5_2==5:
+                        if ch5_2==1:
+                         df1=df.loc[df['team']==team]
+                         df1=df1.loc[:,['name','runs']]
+                         df1.plot(x='name',y='runs',kind='line',linestyle="-.",linewidth=2,color='r')
+                         plt.show()
+                        elif ch5_2==2:
+                         df1=df.loc[df['team']==team]
+                         df1=df1.loc[:,['name','runs']]
+                         df1.plot(x='name',y='runs',kind='bar',color='r')
+                         plt.show()
+                        elif ch5_2==3:
+                         df1=df.loc[df['team']==team]
+                         df1=df1.loc[:,['name','runs']]
+                         df1.plot(x='name',y='runs',kind='barh',color='r')
+                         plt.show()
+                        elif ch5_2==4:
+                         df1=df.loc[df['team']==team]
+                         df1=df1.loc[:,['name','runs']]
+                         df1.plot(x='name',y='runs',kind='hist',bins=25,cumulative=True)
+                         plt.show()
+                        elif ch5_2==5:
                         pass
