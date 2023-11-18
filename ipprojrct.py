@@ -144,7 +144,8 @@ while True:
         print("2.Vertical Bar Plot")
         print("3.Horizontal Bar Plot")
         print("4.Histogram")
-        print("5.Exit The Data Visualization Menu")
+        print("5. Pai Chart")
+        print("6.Exit The Data Visualization Menu")
         ch4 = int(input("Enter Choice:"))
         df1 = pd.DataFrame()
         if ch4 == 1:
@@ -166,6 +167,10 @@ while True:
             df.hist(color="yellow", edgecolor="pink")
             plt.show()
         elif ch4 == 5:
+            df1=df.head(n)
+            df1.plot.pie(autopct='%1.1f%%', startangle=90)
+            plt.show()
+        elif ch4 == 6:
             pass
     elif ch == 5:
         df = pd.read_csv("Untitled_spreadsheet.csv", encoding="latin-1")
